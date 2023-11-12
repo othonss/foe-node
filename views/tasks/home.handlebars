@@ -1,17 +1,17 @@
 <div class="home-header">
     {{#if search}}
-    <h1>Você está buscando por: <span>{{search}}</span></h1>
+    <h1>Você está buscando por: <span>{{search}}</span>.</h1>
         {{#if tasksQty }}
-            <p>Foram encontrados <span>{{tasksQty}}</span> tarefa(s)</p>
+            <p>Foram encontradas <span>{{tasksQty}}</span> tarefas relacionadas.</p>
         {{else}}
-            <p>Nenhuma tarefa encontrada para o <span>{{search}}</span></p>
+            <p>Não foram encontradas tarefas relacionadas a <span>{{search}}</span>.</p>
         {{/if}}
     {{else}}
     <h1>Tarefas</h1>
-    <h2>Pesquise por uma tarefa</h2>
+    <h2>Encontre uma tarefa</h2>
     {{/if}}
     <form action="/" method="GET">
-        <input type="text" name="search" placeholder="Está buscando por algo?">
+        <input type="text" name="search" placeholder="Ex: parafusos">
         <input type="submit" class="btn" value="Buscar">
     </form>
     <div class="order-container">

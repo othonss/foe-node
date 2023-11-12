@@ -69,6 +69,15 @@ app.use("/", authRoutes);
 
 app.get("/", TaskController.showTasks);
 
+app.use((req, res, next) => {
+  const existingRoutes = ['/auth/login', '/auth/register', '/auth/users', '/tasks/add', '/tasks/edit/:id', '/tasks/dashboard', '/tasks/'];
+  if (existingRoutes.includes(req.url)) {
+    next(); 
+  } else {
+    res.status(404).render('error/notfound');
+  }
+});
+
 conn
   .sync()
   .then(() => {

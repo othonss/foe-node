@@ -75,7 +75,7 @@ module.exports = class TaskController {
       where: {
         title: { [Op.like]: `%${search}%` },
       },
-      order: [['createdAt', order]],
+      order: [['updatedAt', order]],
     })
       .then((data) => {
         let tasksQty = data.length

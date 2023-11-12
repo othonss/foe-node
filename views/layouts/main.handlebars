@@ -17,7 +17,8 @@
       </a>
       <ul>
         <li><a href="/">Tarefas</a></li>
-        {{#if session.admin}}    
+        {{#if session.admin}}
+          <li><a href="/tasks/add">Criar tarefa</a></li>       
           <li><a href="/tasks/dashboard">Dashboard</a></li>
           <li><a href="/register">Registrar Colaborador</a></li>
           <li><a href="/users">Colaboradores</a></li>
@@ -25,7 +26,8 @@
         {{/if}}
         
         {{#unless session.admin}}
-          {{#if session.userid}}    
+          {{#if session.userid}}
+            <li><a href="/tasks/add">Criar tarefa</a></li>    
             <li><a href="/tasks/dashboard">Dashboard</a></li>
             <li><a href="/logout">Sair</a></li>
           {{else}}

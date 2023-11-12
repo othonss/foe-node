@@ -37,6 +37,8 @@ module.exports = class UserController {
 
     if(req.session.userid == 1){
       req.session.admin = true
+    }else{
+      req.session.admin = false
     }
 
     req.flash('message', 'Login realizado com sucesso!')
@@ -88,9 +90,8 @@ module.exports = class UserController {
         // console.log('salvou dado')
         // console.log(req.session.userid)
 
-        req.session.userid = user.id
-
         req.flash('message', 'Colaborador(a) cadastrado com sucesso!')
+        console.log("O que tem na sessao admin?" + req.session.admin)
 
         req.session.save(() => {
           res.redirect('/')
@@ -99,30 +100,6 @@ module.exports = class UserController {
       .catch((err) => console.log(err))
   }
 
-  // static async users(req, res){
-  //   User.findAll({raw: true})
-  //   .then((data) => {
-  //     let emptyUsers = false
-  //     let onlyAdmin = false
-
-  //     if (data.length === 0) {
-  //       emptyUsers = true
-  //     }else if (req.session.admin && data.length === 0){
-  //       onlyAdmin = true
-  //     }
-
-  //     const usersDate = data.map((result) => {
-  //       const formattedUpdateddAtData = moment(result.updatedAt).format('DD/MM/YYYY [às] HH:mm') 
-  //       return {
-  //         ...result.get({plain: true }),
-  //         updatedAt: formattedUpdateddAtData,
-  //       }
-  //     })
-
-  //     res.render('users/user', { users: data, emptyUsers, onlyAdmin, usersDate })
-  //   })
-  //   .catch((err) => console.log(err))
-  // }
   static async users(req, res) {
     User.findAll({ raw: false }) // Remova a opção raw: true para obter instâncias de modelo
       .then((data) => {

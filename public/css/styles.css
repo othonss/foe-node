@@ -29,7 +29,7 @@
 }
 
 #navbar ul li {
-  margin-left: 1em;
+  margin-left: .5em;
 }
 
 #navbar ul li a {
@@ -282,7 +282,7 @@ form input[type='submit']:hover,
 .tasks-container .tasks-body {
   border-bottom: 1px solid #333;
   padding: 0.5em;
-  max-width: 50%;
+  max-width: auto;
   margin: 0 auto 1em;
 }
 
@@ -323,6 +323,22 @@ form input[type='submit']:hover,
 .user-body h4, .user-body p{
   margin-bottom: 0.5em;
 }
+
+.notfound-body{
+  text-align: center;
+}
+
+.notfound-body h2{
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.notfound-body i {
+  margin-top: 2em;
+  font-size: 3em;
+  color:#4691CA;
+}
+
 
 
 /* FOOTER */
