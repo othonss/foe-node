@@ -1,0 +1,12 @@
+<div class="task-form-container">
+  <a href="/tasks/dashboard">Voltar</a>
+  <h1>Editando um Pensamento:</h1>
+  <form action="/tasks/edit" method="POST">
+    <input type="hidden" name="id" value={{task.id}}>
+    <div class="form-control">
+        <label for="title">Título:</label>
+        <input type="text" name="title" placeholder="Digite o título" value="{{task.title}}">
+    </div>
+    <input type="submit" value="Editar Pensamento">
+  </form>
+</div>

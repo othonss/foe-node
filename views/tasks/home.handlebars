@@ -1,0 +1,41 @@
+<div class="home-header">
+    {{#if search}}
+    <h1>Você está buscando por: <span>{{search}}</span></h1>
+        {{#if tasksQty }}
+            <p>Foram encontrados <span>{{tasksQty}}</span> tarefa(s)</p>
+        {{else}}
+            <p>Nenhuma tarefa encontrada para o <span>{{search}}</span></p>
+        {{/if}}
+    {{else}}
+    <h1>Tarefas</h1>
+    <h2>Pesquise por uma tarefa</h2>
+    {{/if}}
+    <form action="/" method="GET">
+        <input type="text" name="search" placeholder="Está buscando por algo?">
+        <input type="submit" class="btn" value="Buscar">
+    </form>
+    <div class="order-container">
+        <span>Ordenar por:</span>  
+        <form action="/" method="GET">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="new">
+            <button type="submit"><i class="bi bi-arrow-up"></i> Mais novos</button>
+        </form>
+        <form action="/" method="GET">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="old">
+            <button type="submit"><i class="bi bi-arrow-down"></i> Mais antigos</button>
+        </form>
+        <a href="/">Limpar</a>
+    </div>
+</div>
+<div class="tasks-container">
+    {{#each tasks}}
+        <div class="tasks-body">
+            <h3>
+                {{this.title}}
+            </h3>
+            <div class="task-create"><div>Tarefa criada por <span>{{this.User.name}}</span> em:</div><span>{{this.updatedAt}}</span></div>
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,18 @@
+<div class="users-header">
+    <h2>Colaboradores Cadastrados</h2>
+    {{#if emptyUsers}}
+        <h3>Não há colaboradores cadastrados ainda</h3>
+        <p>Você pode criar um <a href="/auth/register">clicando aqui</a></p>
+    {{/if}}
+    {{#if onlyAdmin}}
+        <h3>Não há colaboradores cadastrados ainda</h3>
+        <p>Você pode criar um <a href="/auth/register">clicando aqui</a></p>
+    {{/if}}
+    {{#each usersDate}}
+        <div class="user-body">
+            <h4>{{this.name}}</h4>
+            <p>Identificador: {{this.identification}}</p>
+            <p>Registrado em: {{this.updatedAt}}</p>      
+        </div>
+    {{/each}}
+</div>
