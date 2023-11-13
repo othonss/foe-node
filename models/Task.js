@@ -9,6 +9,9 @@ const Task = db.define("Task", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  description: {
+    type: DataTypes.TEXT,
+  }
 });
 
 Task.belongsTo(User);

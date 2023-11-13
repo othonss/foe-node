@@ -31,11 +31,28 @@
 </div>
 <div class="tasks-container">
     {{#each tasks}}
-        <div class="tasks-body">
+        {{#if this.description}}
+            <div class="tasks-body">
             <h3>
                 {{this.title}}
             </h3>
+            <h4>
+                Descrição:
+            </h4>
+            <p class="description">
+                {{this.description}}
+            </p>
             <div class="task-create"><div>Tarefa criada por <span>{{this.User.name}}</span> em:</div><span>{{this.updatedAt}}</span></div>
+        {{else}}
+            <div class="tasks-body">
+            <h3>
+                {{this.title}}
+            </h3>
+            <h4>
+                Sem descrição.
+            </h4>
+            <div class="task-create"><div>Tarefa criada por <span>{{this.User.name}}</span> em:</div><span>{{this.updatedAt}}</span></div>
+        {{/if}}
         </div>
     {{/each}}
 </div>

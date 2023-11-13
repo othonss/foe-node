@@ -96,12 +96,21 @@
   margin-bottom: 0.5em;
 }
 
-.form-control input,
-.form-control textarea {
+.form-control input{
   padding: 7px;
   border-radius: 3px;
   border: 1px solid #4691CA;
 }
+
+.form-control textarea {
+  padding: 7px;
+  min-height: 150px;
+  max-height: auto;
+  border-radius: 3px;
+  border: 1px solid #4691CA;
+  resize: none;
+}
+
 
 form input[type='submit'],
 .btn {
@@ -292,6 +301,10 @@ form input[type='submit']:hover,
   margin-bottom: 0.4em;
 }
 
+.tasks-container h4, .description {
+  margin-bottom: 1em;
+}
+
 .tasks-container span:first-child {
   color: #4691CA;
 }
@@ -320,8 +333,16 @@ form input[type='submit']:hover,
   color:#4691CA;
 }
 
-.user-body h4, .user-body p{
-  margin-bottom: 0.5em;
+.user-body h4{
+  margin-bottom: 1em;
+}
+
+.user-body p {
+  margin-top: 0.5em;
+}
+
+.user-body span {
+  font-weight: bold;
 }
 
 .notfound-body{

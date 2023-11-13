@@ -38,6 +38,7 @@ module.exports = class TaskController {
   static createTaskSave(req, res) {
     const task = {
       title: req.body.title,
+      description: req.body.description,
       UserId: req.session.userid,
     }
 
@@ -73,7 +74,10 @@ module.exports = class TaskController {
     Task.findAll({
       include: User,
       where: {
-        title: { [Op.like]: `%${search}%` },
+        [Op.or]: [
+          { title: { [Op.like]: `%${search}%` } },
+          { description: { [Op.like]: `%${search}%` } },
+        ],
       },
       order: [['updatedAt', order]],
     })
