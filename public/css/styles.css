@@ -14,7 +14,6 @@
 #navbar {
   height: 12vh;
   padding: 0 16px;
-  margin-bottom: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,6 +54,15 @@
   max-width: 60%;
 }
 
+.top{
+  margin-bottom: 30em;
+}
+
+.user{
+  font-weight: bold;
+  color:#4691CA;
+}
+
 .container {
   min-height: 60vh;
   height: auto;
@@ -70,6 +78,7 @@
 }
 
 .auth-container h2 {
+  margin-top: 1em;
   margin-bottom: 1em;
   color: #FFF ;
   border-left: 4px solid #4691CA;
@@ -140,9 +149,14 @@ form input[type='submit']:hover,
   margin-bottom: 1.5em;
 }
 
+.title-container a {
+    margin-bottom: auto;
+}
+
 .title-container h2 {
   border-left: 4px solid #4691CA;
   padding: 10px;
+  margin-top: 1em;
 }
 
 .dashboard h3 {
@@ -159,6 +173,16 @@ form input[type='submit']:hover,
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.dashboard h4{
+  margin-top: 1em;
+}
+
+.dashboard p {
+  margin-top: .5em;
+  text-align: justify;
+  line-height: 1.5em;
 }
 
 .dashboard .label {
@@ -195,7 +219,7 @@ form input[type='submit']:hover,
   color: #FFF ;
 }
 
-.task-form-container h1 {
+.task-form-container h2 {
   border-left: 4px solid #4691CA;
   padding: 10px;
   margin-top: 1em;
@@ -217,6 +241,7 @@ form input[type='submit']:hover,
 
 .home-header h1 {
   margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .home-header h2 {
@@ -301,9 +326,15 @@ form input[type='submit']:hover,
   margin-bottom: 0.4em;
 }
 
+.description {
+  text-align: justify;
+  line-height: 1.5em;
+}
+
 .tasks-container h4, .description {
   margin-bottom: 1em;
 }
+
 
 .tasks-container span:first-child {
   color: #4691CA;
@@ -320,6 +351,7 @@ form input[type='submit']:hover,
   border-left: 4px solid #4691CA;
   padding: 0.3em;
   width: auto;
+  margin-top: 1em;
 }
 
 .user-body{
@@ -364,17 +396,18 @@ form input[type='submit']:hover,
 
 /* FOOTER */
 footer {
-  height: 12vh;
+  height: 15vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-top: 1px solid #4691CA;
   background-color: #121214 ;
+  padding-top: 1em;
 }
 
 footer p {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 footer span {

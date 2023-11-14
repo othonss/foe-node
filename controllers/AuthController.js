@@ -34,6 +34,7 @@ module.exports = class UserController {
 
     // auth user
     req.session.userid = user.id
+    req.session.userName = user.name
 
     if(req.session.userid == 1){
       req.session.admin = true

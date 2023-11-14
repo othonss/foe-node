@@ -36,7 +36,16 @@
         {{/unless}}
       </ul>
     </nav>
-    <div class="container">
+    <div class="container"> 
+      {{#if session.userName}}
+        <p>
+          <span class="active-user top">Usuário ativo:</span>
+          <span class="user">
+            {{session.userName}}
+          </span>
+      {{else}}
+        
+      {{/if}}
       {{#if messages.message}}
         <div class="message">
           {{messages.message}}
@@ -50,7 +59,21 @@
       {{{ body }}}
     </div>
     <footer>
-      <p><span>FOE - Organização e Eficiência</span> &copy; 2023</p>
+      {{#if session.userName}}
+        <p class="active-user">
+          Usuário ativo 
+          <span class="user">
+            {{session.userName}}
+          </span>
+        </p>
+        <p>
+          <span>FOE - Organização e Eficiência</span> &copy; 2023
+        </p>
+      {{else}}
+        <p>
+          <span>FOE - Organização e Eficiência</span> &copy; 2023
+        </p>
+      {{/if}}
     </footer>
   </body>
 </html>

@@ -7,7 +7,13 @@
     <ul>
         {{#each tasks}}
             <li>
-                <span class="label">{{this.title}}</span>
+                <div>
+                    <span class="label">{{this.title}}</span>
+                    <h4>Descrição:</h4>
+                    <p>
+                        {{this.description}}
+                    </p>
+                </div>
                 <span class="actions">
                     <a href="/tasks/edit/{{this.id}}" class="btn">Editar</a>
                     <form action="/tasks/remove" method="POST">
