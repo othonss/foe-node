@@ -9,10 +9,28 @@
         <p>Você pode criar um <a href="/auth/register">clicando aqui</a></p>
     {{/if}}
     {{#each usersDate}}
-        <div class="user-body">
-            <h4>{{this.name}}</h4>
-            <p><span>Identificador:</span> {{this.identification}}</p>
-            <p>Registrado em: {{this.updatedAt}}</p>      
-        </div>
+        <ul class="user-body">
+            {{#ifEquals this.identification 111111}}
+                <div>
+                    <h4>{{this.name}}</h4>
+                    <p><span>Identificador:</span> {{this.identification}}</p>
+                    <p>Registrado em: {{this.updatedAt}}</p>
+                </div>
+            {{else}}
+                <li>
+                    <div>
+                        <h4>{{this.name}}</h4>
+                        <p><span>Identificador:</span> {{this.identification}}</p>
+                        <p>Registrado em: {{this.updatedAt}}</p>
+                    </div>
+                    <span class="actions">
+                        <form action="/users/removeUser" method="POST">
+                            <input type="hidden" name="identification" value="{{this.identification}}">
+                            <input type="submit" value="Excluir" class="btn">
+                        </form>
+                    </span>      
+                </li>
+            {{/ifEquals}}
+        </ul>
     {{/each}}
 </div>

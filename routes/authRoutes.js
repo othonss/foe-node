@@ -11,7 +11,7 @@ router.post('/login', AuthController.loginPost)
 router.get('/register', checkAuth, checkAuthAdmin, AuthController.register)
 router.post('/register', checkAuth, checkAuthAdmin, AuthController.registerPost)
 router.get('/users', checkAuth, checkAuthAdmin, AuthController.users)
-router.post("/remove", checkAuth, AuthController.removeUser);
+router.post("/users/removeUser", checkAuth, checkAuthAdmin, AuthController.removeUser);
 router.get('/logout', AuthController.logout)
 
 module.exports = router

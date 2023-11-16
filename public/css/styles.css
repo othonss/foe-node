@@ -168,7 +168,7 @@ form input[type='submit']:hover,
 }
 
 .dashboard li {
-  padding: 12px;
+  padding: 0 0 12px 0;
   border-bottom: 1px solid #4691CA;
   display: flex;
   align-items: center;
@@ -360,6 +360,14 @@ form input[type='submit']:hover,
   padding: 0.5em;
   width: auto;
   margin: 0 auto 1em;
+  padding: 0 0 8px 0;
+}
+
+.user-body li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-body h4 {
@@ -415,3 +423,4 @@ footer span {
   font-weight: bold;
   color: #4691CA;
 }
+

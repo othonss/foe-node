@@ -14,7 +14,11 @@ const Task = db.define("Task", {
   }
 });
 
-Task.belongsTo(User);
-User.hasMany(Task);
+Task.belongsTo(User, {
+  onDelete: 'CASCADE', // Remove as tarefas associadas quando o usuário é excluído
+});
+User.hasMany(Task, {
+  onDelete: 'CASCADE', // Remove as tarefas associadas quando o usuário é excluído
+});
 
 module.exports = Task;

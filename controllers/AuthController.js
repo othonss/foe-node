@@ -2,6 +2,7 @@ const User = require('../models/User')
 const moment = require('moment')
 const bcrypt = require('bcryptjs')
 
+
 module.exports = class UserController {
   static login(req, res) {
     res.render('auth/login')
@@ -99,6 +100,7 @@ module.exports = class UserController {
         })
       })
       .catch((err) => console.log(err))
+      console.log("Não estou aqui")
   }
 
   static async users(req, res) {
@@ -112,6 +114,7 @@ module.exports = class UserController {
         } else if (req.session.admin && data.every(user => user.isAdmin)) {
           onlyAdmin = true;
         }
+
   
         const usersDate = data.map((result) => {
           const formattedUpdateddAtData = moment(result.updatedAt).format('DD/MM/YYYY [às] HH:mm');
@@ -125,10 +128,20 @@ module.exports = class UserController {
       })
       .catch((err) => console.log(err));
   }
-  
+
 
   static async removeUser(req, res){
-
+    console.log("Estou aqui no remove")
+    const identification = req.body.identification
+    console.log("Qual é o identificador: " + identification)
+    User.destroy({ where: { identification: identification } })
+      .then(() => {
+        req.flash('message', 'Colaborador excluído com sucesso!')
+        req.session.save(() => {
+          res.redirect('/users')
+        })
+      })
+      .catch((err) => console.log())
   }
 
   static logout(req, res) {

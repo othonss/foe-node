@@ -3,6 +3,7 @@ const exphbs = require("express-handlebars");
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
 const flash = require("express-flash");
+const helpers = require("./helpers/exphbsHelper")
 
 const app = express();
 
@@ -15,6 +16,12 @@ const Task = require("./models/Task");
 const tasksRoutes = require("./routes/tasksRoutes");
 const authRoutes = require("./routes/authRoutes");
 const TaskController = require("./controllers/TaskController");
+
+const hbs = exphbs.create({
+  helpers: {
+    ...helpers,
+  },
+});
 
 app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
