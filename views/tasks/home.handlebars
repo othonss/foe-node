@@ -19,24 +19,31 @@
         <form action="/" method="GET">
             <input type="hidden" name="search" value="{{this.search}}">
             <input type="hidden" name="order" value="new">
-            <button type="submit"><i class="bi bi-arrow-up"></i> Mais novos</button>
+            <button type="submit"><i class="bi bi-arrow-up"></i> Mais novas</button>
         </form>
         <form action="/" method="GET">
             <input type="hidden" name="search" value="{{this.search}}">
             <input type="hidden" name="order" value="old">
-            <button type="submit"><i class="bi bi-arrow-down"></i> Mais antigos</button>
+            <button type="submit"><i class="bi bi-arrow-down"></i> Mais antigas</button>
         </form>
         <a href="/">Limpar</a>
     </div>
 </div>
 <div class="tasks-container">
     {{#if session.admin}}
-              {{#each tasks}}
+    {{#each tasks}}
         {{#if this.description}}
             <div class="tasks-body">
-            <h3>
-                {{this.title}}
-            </h3>
+            {{#if this.done}}
+                <h3 class="title done">
+                    {{this.title}}
+                </h3>
+                <p class="sucess">Tarefa concluída!</p>
+            {{else}}
+                <h3>
+                    {{this.title}}
+                </h3>
+            {{/if}} 
             <h4>
                 Descrição:
             </h4>
@@ -49,13 +56,18 @@
                 </div>
                 <div class="task-options">
                     {{this.updatedAt}}
-                    <form action="/tasks/updatestatus" method="post">
-                        <input type="hidden" name="id" value={{this.id}}>
-                        <input type="hidden" name="done" value={{this.done}}>
-                        <button type="submit">
-                            <i class="bi bi-check2-square"></i>
-                        </button>
-                    </form>
+                    {{#if this.done}}
+                        
+                    {{else}}
+                        <form action="/tasks/updatestatus" method="post">
+                            <input type="hidden" name="id" value={{this.id}}>
+                            <input type="hidden" name="done" value={{this.done}}>
+                            <button type="submit">
+                                <i class="bi bi-check2-square" id="check"></i>
+                            </button>
+                        </form>
+                    {{/if}} 
+                    
                     <form action="/tasks/removeHome" method="post">
                         <input type="hidden" name="id" value={{this.id}}>
                         <button type="submit">
@@ -66,9 +78,16 @@
             </div>
         {{else}}
             <div class="tasks-body">
-            <h3>
-                {{this.title}}
-            </h3>
+            {{#if this.done}}
+                <h3 class="title done">
+                    {{this.title}}
+                </h3>
+                <p class="sucess">Tarefa concluída!</p>
+            {{else}}
+                <h3>
+                    {{this.title}}
+                </h3>
+            {{/if}} 
             <h4>
                 Sem descrição.
             </h4>
@@ -78,13 +97,17 @@
                 </div>
                 <div class="task-options">
                     {{this.updatedAt}}
-                    <form action="/tasks/updatestatus" method="post">
-                        <input type="hidden" name="id" value={{this.id}}>
-                        <input type="hidden" name="done" value={{this.done}}>
-                        <button type="submit">
-                            <i class="bi bi-check2-square"></i>
-                        </button>
-                    </form>
+                    {{#if this.done}}
+                        
+                    {{else}}
+                        <form action="/tasks/updatestatus" method="post">
+                            <input type="hidden" name="id" value={{this.id}}>
+                            <input type="hidden" name="done" value={{this.done}}>
+                            <button type="submit">
+                                <i class="bi bi-check2-square" id="check"></i>
+                            </button>
+                        </form>
+                    {{/if}} 
                     <form action="/tasks/removeHome" method="post">
                         <input type="hidden" name="id" value={{this.id}}>
                         <button type="submit">
@@ -102,9 +125,16 @@
                 {{#each tasks}}
                     {{#if this.description}}
                         <div class="tasks-body">
-                        <h3>
-                            {{this.title}}
-                        </h3>
+                        {{#if this.done}}
+                            <h3 class="title done">
+                                {{this.title}}
+                            </h3>
+                            <p class="sucess">Tarefa concluída!</p>
+                        {{else}}
+                            <h3>
+                                {{this.title}}
+                            </h3>
+                        {{/if}} 
                         <h4>
                             Descrição:
                         </h4>
@@ -117,20 +147,25 @@
                             </div>
                             <div class="task-options">
                                 {{this.updatedAt}}
-                                <form action="/tasks/updatestatus" method="post">
-                                    <input type="hidden" name="id" value={{this.id}}>
-                                    <input type="hidden" name="done" value={{this.done}}>
-                                    <button type="submit">
-                                        <i class="bi bi-check2-square"></i>
-                                    </button>
-                                </form>
+                                {{#if this.done}}
+                        
+                                {{else}}
+                                    <form action="/tasks/updatestatus" method="post">
+                                        <input type="hidden" name="id" value={{this.id}}>
+                                        <input type="hidden" name="done" value={{this.done}}>
+                                        <button type="submit">
+                                            <i class="bi bi-check2-square" id="check"></i>
+                                        </button>
+                                    </form>
+                                {{/if}} 
                             </div>
                         </div>
                     {{else}}
                         <div class="tasks-body">
-                        <h3>
+                        <h3 class="title done">
                             {{this.title}}
                         </h3>
+                        <p class="sucess">Tarefa concluída!</p>
                         <h4>
                             Sem descrição.
                         </h4>
@@ -140,13 +175,17 @@
                             </div>
                             <div class="task-options">
                                 {{this.updatedAt}}
-                                <form action="/tasks/updatestatus" method="post">
-                                    <input type="hidden" name="id" value={{this.id}}>
-                                    <input type="hidden" name="done" value={{this.done}}>
-                                    <button type="submit">
-                                        <i class="bi bi-check2-square"></i>
-                                    </button>
-                                </form>
+                                {{#if this.done}}
+                        
+                                {{else}}
+                                    <form action="/tasks/updatestatus" method="post">
+                                        <input type="hidden" name="id" value={{this.id}}>
+                                        <input type="hidden" name="done" value={{this.done}}>
+                                        <button type="submit">
+                                            <i class="bi bi-check2-square" id="check"></i>
+                                        </button>
+                                    </form>
+                                {{/if}} 
                             </div>
                         </div>
                     {{/if}}
@@ -156,9 +195,10 @@
                 {{#each tasks}}
                     {{#if this.description}}
                         <div class="tasks-body">
-                        <h3>
-                            {{this.title}}
+                        <h3 class="title done">
+                            {{this.title}} 
                         </h3>
+                        <p class="sucess">Tarefa concluída!</p>
                         <h4>
                             Descrição:
                         </h4>
@@ -175,9 +215,10 @@
                         </div>
                     {{else}}
                         <div class="tasks-body">
-                        <h3>
+                        <h3 class="title done">
                             {{this.title}}
                         </h3>
+                        <p class="sucess">Tarefa concluída!</p>
                         <h4>
                             Sem descrição.
                         </h4>

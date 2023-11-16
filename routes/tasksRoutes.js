@@ -6,6 +6,7 @@ const TaskController = require("../controllers/TaskController");
 const checkAuth = require("../helpers/auth").checkAuth;
 const checkAuthAdmin = require("../helpers/auth").checkAuthAdmin;
 
+router.post('/updatestatus', checkAuth, TaskController.toggleTaskStatus)
 router.get("/add", checkAuth, TaskController.createTask);
 router.post("/add", checkAuth, TaskController.createTaskSave);
 router.post("/remove", checkAuth, TaskController.removeTask);

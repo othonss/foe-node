@@ -39,6 +39,7 @@ module.exports = class TaskController {
     const task = {
       title: req.body.title,
       description: req.body.description,
+      done: false,
       UserId: req.session.userid,
     }
 
@@ -156,5 +157,19 @@ module.exports = class TaskController {
         })
       })
       .catch((err) => console.log())
+  }
+
+  static async toggleTaskStatus(req, res){
+    console.log("Passei por aqui")
+    const id = req.body.id
+    let done = 1
+
+    const task = {
+      done: done
+    }
+    
+    await Task.update(task, {where: {id: id}})
+    res.redirect('/')
+    console.log("Acabei aqui")
   }
 }

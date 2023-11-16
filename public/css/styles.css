@@ -168,7 +168,7 @@ form input[type='submit']:hover,
 }
 
 .dashboard li {
-  padding: 0 0 12px 0;
+  padding: 12px 0 12px 0;
   border-bottom: 1px solid #4691CA;
   display: flex;
   align-items: center;
@@ -336,10 +336,24 @@ form input[type='submit']:hover,
   color: #fff;
 }
 
+.tasks-body .hidden {
+  display: none;
+}
+
+.sucess{
+  color: #109010;
+  margin: 1em 0 1em 0;
+}
+
 .tasks-container h3 {
   font-style: italic;
   font-size: 2em;
   margin-bottom: 0.4em;
+}
+
+.title.done{
+  text-decoration: line-through;
+  color: #4691CA;
 }
 
 .description {

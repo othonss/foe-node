@@ -11,7 +11,11 @@ const Task = db.define("Task", {
   },
   description: {
     type: DataTypes.TEXT,
-  }
+  },
+  done:{
+    type: DataTypes.BOOLEAN,
+    require: true 
+ }
 });
 
 Task.belongsTo(User, {
