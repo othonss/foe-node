@@ -30,7 +30,8 @@
     </div>
 </div>
 <div class="tasks-container">
-    {{#each tasks}}
+    {{#if session.admin}}
+              {{#each tasks}}
         {{#if this.description}}
             <div class="tasks-body">
             <h3>
@@ -42,7 +43,27 @@
             <p class="description">
                 {{this.description}}
             </p>
-            <div class="task-create"><div>Tarefa criada por <span>{{this.User.name}}</span> em:</div><span>{{this.updatedAt}}</span></div>
+            <div class="task-create">
+                <div>
+                    Tarefa criada por <span>{{this.User.name}}</span> em:
+                </div>
+                <div class="task-options">
+                    {{this.updatedAt}}
+                    <form action="/tasks/updatestatus" method="post">
+                        <input type="hidden" name="id" value={{this.id}}>
+                        <input type="hidden" name="done" value={{this.done}}>
+                        <button type="submit">
+                            <i class="bi bi-check2-square"></i>
+                        </button>
+                    </form>
+                    <form action="/tasks/removeHome" method="post">
+                        <input type="hidden" name="id" value={{this.id}}>
+                        <button type="submit">
+                            <i class="bi bi-x-square"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
         {{else}}
             <div class="tasks-body">
             <h3>
@@ -51,8 +72,126 @@
             <h4>
                 Sem descrição.
             </h4>
-            <div class="task-create"><div>Tarefa criada por <span>{{this.User.name}}</span> em:</div><span>{{this.updatedAt}}</span></div>
+            <div class="task-create">
+                <div>
+                    Tarefa criada por <span>{{this.User.name}}</span> em:
+                </div>
+                <div class="task-options">
+                    {{this.updatedAt}}
+                    <form action="/tasks/updatestatus" method="post">
+                        <input type="hidden" name="id" value={{this.id}}>
+                        <input type="hidden" name="done" value={{this.done}}>
+                        <button type="submit">
+                            <i class="bi bi-check2-square"></i>
+                        </button>
+                    </form>
+                    <form action="/tasks/removeHome" method="post">
+                        <input type="hidden" name="id" value={{this.id}}>
+                        <button type="submit">
+                            <i class="bi bi-x-square"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
         {{/if}}
         </div>
     {{/each}}
+    {{/if}}
+        {{#unless session.admin}}
+          {{#if session.userid}}
+                {{#each tasks}}
+                    {{#if this.description}}
+                        <div class="tasks-body">
+                        <h3>
+                            {{this.title}}
+                        </h3>
+                        <h4>
+                            Descrição:
+                        </h4>
+                        <p class="description">
+                            {{this.description}}
+                        </p>
+                        <div class="task-create">
+                            <div>
+                                Tarefa criada por <span>{{this.User.name}}</span> em:
+                            </div>
+                            <div class="task-options">
+                                {{this.updatedAt}}
+                                <form action="/tasks/updatestatus" method="post">
+                                    <input type="hidden" name="id" value={{this.id}}>
+                                    <input type="hidden" name="done" value={{this.done}}>
+                                    <button type="submit">
+                                        <i class="bi bi-check2-square"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {{else}}
+                        <div class="tasks-body">
+                        <h3>
+                            {{this.title}}
+                        </h3>
+                        <h4>
+                            Sem descrição.
+                        </h4>
+                        <div class="task-create">
+                            <div>
+                                Tarefa criada por <span>{{this.User.name}}</span> em:
+                            </div>
+                            <div class="task-options">
+                                {{this.updatedAt}}
+                                <form action="/tasks/updatestatus" method="post">
+                                    <input type="hidden" name="id" value={{this.id}}>
+                                    <input type="hidden" name="done" value={{this.done}}>
+                                    <button type="submit">
+                                        <i class="bi bi-check2-square"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {{/if}}
+                    </div>
+                {{/each}}
+          {{else}}
+                {{#each tasks}}
+                    {{#if this.description}}
+                        <div class="tasks-body">
+                        <h3>
+                            {{this.title}}
+                        </h3>
+                        <h4>
+                            Descrição:
+                        </h4>
+                        <p class="description">
+                            {{this.description}}
+                        </p>
+                        <div class="task-create">
+                            <div>
+                                Tarefa criada por <span>{{this.User.name}}</span> em:
+                            </div>
+                            <div class="task-options">
+                                {{this.updatedAt}}
+                            </div>
+                        </div>
+                    {{else}}
+                        <div class="tasks-body">
+                        <h3>
+                            {{this.title}}
+                        </h3>
+                        <h4>
+                            Sem descrição.
+                        </h4>
+                        <div class="task-create">
+                            <div>
+                                Tarefa criada por <span>{{this.User.name}}</span> em:
+                            </div>
+                            <div class="task-options">
+                                {{this.updatedAt}}
+                            </div>
+                        </div>
+                    {{/if}}
+                    </div>
+                {{/each}}
+          {{/if}}
+    {{/unless}}
 </div>

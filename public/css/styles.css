@@ -321,6 +321,21 @@ form input[type='submit']:hover,
   margin: 0 auto 1em;
 }
 
+.tasks-body button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.tasks-body i {
+  font-size: 1.5em;
+  color: #4691CA;
+}
+
+.tasks-body i:hover{
+  color: #fff;
+}
+
 .tasks-container h3 {
   font-style: italic;
   font-size: 2em;
@@ -334,6 +349,11 @@ form input[type='submit']:hover,
 
 .tasks-container h4, .description {
   margin-bottom: 1em;
+}
+
+.tasks-body .task-options{
+  display: flex;
+  gap: 1.5em;
 }
 
 

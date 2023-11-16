@@ -117,6 +117,19 @@ module.exports = class TaskController {
       .catch((err) => console.log())
   }
 
+  static removeTaskHome(req, res){
+    const id = req.body.id
+
+    Task.destroy({ where: { id: id } })
+      .then(() => {
+        req.flash('message', 'Tarefa removida com sucesso!')
+        req.session.save(() => {
+          res.redirect('/')
+        })
+      })
+      .catch((err) => console.log())
+  }
+
   static updateTask(req, res) {
     const id = req.params.id
 
