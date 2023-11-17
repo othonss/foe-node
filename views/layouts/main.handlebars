@@ -11,31 +11,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   </head>
   <body>
-    <nav id="navbar">
-      <a href="/" id="logo">
-        <img src="/img/foe-logotipo.png" alt="Logotipo Foe">
-      </a>
-      <ul>
-        <li><a href="/">Tarefas</a></li>
-        {{#if session.admin}}
-          <li><a href="/tasks/add">Criar tarefa</a></li>       
-          <li><a href="/tasks/dashboard">Dashboard</a></li>
-          <li><a href="/register">Registrar Colaborador</a></li>
-          <li><a href="/users">Colaboradores</a></li>
-          <li><a href="/logout">Sair</a></li>
-        {{/if}}
-        
-        {{#unless session.admin}}
-          {{#if session.userid}}
-            <li><a href="/tasks/add">Criar tarefa</a></li>    
+    <header class="header">
+      <nav id="navbar" class="nav">
+        <a href="/" id="logo" class="logo">
+          <img src="/img/foe-logotipo.png" alt="Logotipo Foe">
+        </a>
+        <button class="hamburger"></button>
+        <ul class="nav-list">
+          <li><a href="/">Tarefas</a></li>
+          {{#if session.admin}}
+            <li><a href="/tasks/add">Criar tarefa</a></li>       
             <li><a href="/tasks/dashboard">Dashboard</a></li>
+            <li><a href="/register">Registrar Colaborador</a></li>
+            <li><a href="/users">Colaboradores</a></li>
             <li><a href="/logout">Sair</a></li>
-          {{else}}
-            <li><a href="/login">Entrar</a></li>
           {{/if}}
-        {{/unless}}
-      </ul>
-    </nav>
+          
+          {{#unless session.admin}}
+            {{#if session.userid}}
+              <li><a href="/tasks/add">Criar tarefa</a></li>    
+              <li><a href="/tasks/dashboard">Dashboard</a></li>
+              <li><a href="/logout">Sair</a></li>
+            {{else}}
+              <li><a href="/login">Entrar</a></li>
+            {{/if}}
+          {{/unless}}
+        </ul>
+      </nav>
+    </header>
     <div class="container"> 
       {{#if session.userName}}
         <p>
@@ -75,5 +78,11 @@
         </p>
       {{/if}}
     </footer>
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const nav = document.querySelector(".nav");
+
+      hamburger.addEventListener("click", () => nav.classList.toggle("active"));
+    </script>
   </body>
 </html>
