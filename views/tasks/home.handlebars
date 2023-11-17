@@ -10,7 +10,7 @@
     <h1>Tarefas</h1>
     <h2>Encontre uma tarefa</h2>
     {{/if}}
-    <form action="/" method="GET">
+    <form action="/" method="GET" class="search-home">
         <input type="text" name="search" placeholder="Ex: parafusos">
         <input type="submit" class="btn" value="Buscar">
     </form>
@@ -19,12 +19,12 @@
         <form action="/" method="GET">
             <input type="hidden" name="search" value="{{this.search}}">
             <input type="hidden" name="order" value="new">
-            <button type="submit"><i class="bi bi-arrow-up"></i> Mais novas</button>
+            <button type="submit"><i class="bi bi-arrow-up"></i> Novas</button>
         </form>
         <form action="/" method="GET">
             <input type="hidden" name="search" value="{{this.search}}">
             <input type="hidden" name="order" value="old">
-            <button type="submit"><i class="bi bi-arrow-down"></i> Mais antigas</button>
+            <button type="submit"><i class="bi bi-arrow-down"></i> Antigas</button>
         </form>
         <a href="/">Limpar</a>
     </div>

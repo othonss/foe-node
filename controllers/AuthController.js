@@ -86,18 +86,18 @@ module.exports = class UserController {
 
     User.create(user)
       .then((user) => {
-        // initialize session
-        req.session.userid = user.id
+        //initialize session
+        //req.session.userid = user.id
 
         // console.log('salvou dado')
         // console.log(req.session.userid)
 
         req.flash('message', 'Colaborador(a) cadastrado com sucesso!')
-        console.log("O que tem na sessao admin?" + req.session.admin)
+        //console.log("O que tem na sessao admin?" + req.session.admin)
 
         req.session.save(() => {
-          res.redirect('/')
-        })
+          res.redirect('/users')
+       })
       })
       .catch((err) => console.log(err))
       console.log("Não estou aqui")

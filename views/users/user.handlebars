@@ -1,5 +1,5 @@
 <div class="users-header">
-    <h2>Colaboradores Cadastrados</h2>
+    <h2>Colaboradores</h2>
     {{#if emptyUsers}}
         <h3>Não há colaboradores cadastrados ainda</h3>
         <p>Você pode criar um <a href="/auth/register">clicando aqui</a></p>
@@ -11,17 +11,25 @@
     {{#each usersDate}}
         <ul class="user-body">
             {{#ifEquals this.identification 111111}}
-                <div>
-                    <h4>{{this.name}}</h4>
-                    <p><span>Identificador:</span> {{this.identification}}</p>
-                    <p>Registrado em: {{this.updatedAt}}</p>
-                </div>
+                <li>
+                    <div class="collaborator">
+                        <h4>{{this.name}}</h4>
+                        <p><span>Identificador:</span> {{this.identification}}</p>
+                        <p>Registrado em: <p>{{this.updatedAt}}</p></p>
+                    </div>
+                    <span class="actions hidden">
+                        <form action="/users/removeUser" method="POST">
+                            <input type="hidden" name="identification" value="{{this.identification}}">
+                            <input type="submit" value="Excluir" class="btn">
+                        </form>
+                    </span>  
+                </li>
             {{else}}
                 <li>
                     <div>
                         <h4>{{this.name}}</h4>
                         <p><span>Identificador:</span> {{this.identification}}</p>
-                        <p>Registrado em: {{this.updatedAt}}</p>
+                        <p>Registrado em: <p>{{this.updatedAt}}</p></p>
                     </div>
                     <span class="actions">
                         <form action="/users/removeUser" method="POST">
