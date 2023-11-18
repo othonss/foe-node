@@ -162,10 +162,16 @@
                         </div>
                     {{else}}
                         <div class="tasks-body">
-                        <h3 class="title done">
-                            {{this.title}}
-                        </h3>
-                        <p class="sucess">Tarefa concluída!</p>
+                        {{#if this.done}}
+                            <h3 class="title done">
+                                {{this.title}}
+                            </h3>
+                            <p class="sucess">Tarefa concluída!</p>
+                        {{else}}
+                            <h3>
+                                {{this.title}}
+                            </h3>
+                        {{/if}}
                         <h4>
                             Sem descrição.
                         </h4>
@@ -220,10 +226,16 @@
                         </div>
                     {{else}}
                         <div class="tasks-body">
-                        <h3 class="title done">
-                            {{this.title}}
-                        </h3>
-                        <p class="sucess">Tarefa concluída!</p>
+                        {{#if this.done}}
+                            <h3 class="title done">
+                                {{this.title}}
+                            </h3>
+                            <p class="sucess">Tarefa concluída!</p>
+                        {{else}}
+                            <h3>
+                                {{this.title}}
+                            </h3>
+                        {{/if}}
                         <h4>
                             Sem descrição.
                         </h4>
