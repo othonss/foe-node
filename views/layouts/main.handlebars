@@ -100,6 +100,16 @@
       function validateIdentifierInput(){
         return validateNumericField()
       }
+    
+      function checkTask(){
+        let result = confirm("Essa ação não poderá ser desfeita, deseja continuar?")
+        
+        return result
+      }
+
+      function validateTask(){
+        return checkTask()
+      }
     </script>
   </body>
 </html>

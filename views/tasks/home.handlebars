@@ -59,7 +59,7 @@
                     {{#if this.done}}
                         
                     {{else}}
-                        <form action="/tasks/updatestatus" method="post">
+                        <form action="/tasks/updatestatus" method="post" onsubmit="return validateTask()">
                             <input type="hidden" name="id" value={{this.id}}>
                             <input type="hidden" name="done" value={{this.done}}>
                             <button type="submit">
@@ -68,7 +68,7 @@
                         </form>
                     {{/if}} 
                     
-                    <form action="/tasks/removeHome" method="post">
+                    <form action="/tasks/removeHome" method="post" onsubmit="return validateTask()">
                         <input type="hidden" name="id" value={{this.id}}>
                         <button type="submit">
                             <i class="bi bi-x-square"></i>
@@ -100,7 +100,7 @@
                     {{#if this.done}}
                         
                     {{else}}
-                        <form action="/tasks/updatestatus" method="post">
+                        <form action="/tasks/updatestatus" method="post" onsubmit="return validateTask()">
                             <input type="hidden" name="id" value={{this.id}}>
                             <input type="hidden" name="done" value={{this.done}}>
                             <button type="submit">
@@ -108,7 +108,7 @@
                             </button>
                         </form>
                     {{/if}} 
-                    <form action="/tasks/removeHome" method="post">
+                    <form action="/tasks/removeHome" method="post" onsubmit="return validateTask()">
                         <input type="hidden" name="id" value={{this.id}}>
                         <button type="submit">
                             <i class="bi bi-x-square"></i>
@@ -150,7 +150,7 @@
                                 {{#if this.done}}
                         
                                 {{else}}
-                                    <form action="/tasks/updatestatus" method="post">
+                                    <form action="/tasks/updatestatus" method="post" onsubmit="return validateTask()">
                                         <input type="hidden" name="id" value={{this.id}}>
                                         <input type="hidden" name="done" value={{this.done}}>
                                         <button type="submit">
@@ -184,7 +184,7 @@
                                 {{#if this.done}}
                         
                                 {{else}}
-                                    <form action="/tasks/updatestatus" method="post">
+                                    <form action="/tasks/updatestatus" method="post" onsubmit="return validateTask()">
                                         <input type="hidden" name="id" value={{this.id}}>
                                         <input type="hidden" name="done" value={{this.done}}>
                                         <button type="submit">
