@@ -1,13 +1,13 @@
 <div class="auth-container">
     <h2>Registrar Colaborador</h2>
-    <form action="/register" method="POST">
+    <form action="/register" method="POST" onsubmit="return validateIdentifierInput()">
         <div class="form-control">
             <label for="text">Nome:</label>
             <input type="name" name="name" placeholder="Ex: Maria" required>
         </div>
         <div class="form-control">
             <label for="identification">Número de identificação:</label>
-            <input type="text" name="identification" placeholder="Ex: 101026" required>
+            <input type="text" name="identification" placeholder="Composto por 6 digitos númericos ex: 101026" id="identifierField" required>
         </div>
             <div class="form-control">
             <label for="password">Senha:</label>

@@ -195,11 +195,16 @@
                 {{#each tasks}}
                     {{#if this.description}}
                         <div class="tasks-body">
-                        <h3 class="title done">
-                            {{this.title}} 
-                        </h3>
-                        <p class="sucess">Tarefa concluída!</p>
-                        <h4>
+                         {{#if this.done}}
+                            <h3 class="title done">
+                                {{this.title}}
+                            </h3>
+                            <p class="sucess">Tarefa concluída!</p>
+                        {{else}}
+                            <h3>
+                                {{this.title}}
+                            </h3>
+                        {{/if}}
                             Descrição:
                         </h4>
                         <p class="description">

@@ -1,9 +1,10 @@
 <div class="auth-container">
     <h2>Entrar</h2>
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" onsubmit="return validateIdentifierInput()">
         <div class="form-control">
             <label for="identification">Número identificador:</label>
-            <input type="identification" name="identification" placeholder="Ex: 111111">
+            <input type="text" name="identification" placeholder="Composto por 6 digitos númericos ex: 101026" id="identifierField" required>
+            <p></p>
         </div>
             <div class="form-control">
             <label for="password">Senha:</label>

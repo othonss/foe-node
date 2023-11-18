@@ -79,10 +79,27 @@
       {{/if}}
     </footer>
     <script>
-      const hamburger = document.querySelector(".hamburger");
-      const nav = document.querySelector(".nav");
+      const hamburger = document.querySelector(".hamburger")
+      const nav = document.querySelector(".nav")
+      hamburger.addEventListener("click", () => nav.classList.toggle("active"))
 
-      hamburger.addEventListener("click", () => nav.classList.toggle("active"));
+      //Validar número identificador
+      function validateNumericField() {
+        let identifierField = document.getElementById("identifierField").value
+
+        let regex = /^\d{6}$/
+
+        if (regex.test(identifierField)) {
+          return true
+        } else {
+          alert("O identificador é composto por 6 digitos númericos!")
+          return false
+        }
+      }
+
+      function validateIdentifierInput(){
+        return validateNumericField()
+      }
     </script>
   </body>
 </html>
