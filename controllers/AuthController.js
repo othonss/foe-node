@@ -117,7 +117,7 @@ module.exports = class UserController {
 
   
         const usersDate = data.map((result) => {
-          const formattedUpdateddAtData = moment(result.updatedAt).format('DD/MM/YYYY [às] HH:mm');
+          const formattedUpdateddAtData = moment(result.updatedAt).format('DD/MM/YYYY');
           return {
             ...result.get({ plain: true }),
             updatedAt: formattedUpdateddAtData,
