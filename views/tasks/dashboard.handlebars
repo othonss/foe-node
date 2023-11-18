@@ -16,7 +16,7 @@
                 </div>
                 <span class="actions">
                     <a href="/tasks/edit/{{this.id}}" class="btn">Editar</a>
-                    <form action="/tasks/remove" method="POST">
+                    <form action="/tasks/remove" method="POST" onsubmit="return validateTask()">
                         <input type="hidden" name="id" value="{{this.id}}">
                         <input type="submit" value="Excluir" class="btn">
                     </form>
