@@ -3,7 +3,10 @@ const exphbs = require("express-handlebars");
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
 const flash = require("express-flash");
-const helpers = require("./helpers/exphbsHelper")
+const helpers = require("./helpers/exphbsHelper");
+const path = require("path");
+
+const PORT = process.env.PORT
 
 const app = express();
 
@@ -23,8 +26,13 @@ const hbs = exphbs.create({
   },
 });
 
-app.engine("handlebars", exphbs.engine());
+app.engine('handlebars', exphbs.engine({
+  defaultLayout: "main",
+  layoutsDir: path.join(__dirname, "views", "layouts")
+}));
+
 app.set("view engine", "handlebars");
+app.set("views", path.join(__dirname, "views"));
 
 app.use(
   express.urlencoded({
@@ -57,7 +65,7 @@ app.use(
 // flash messages
 app.use(flash());
 
-app.use(express.static("public"));
+app.use('/', express.static(__dirname + '/public'));
 
 // set session to res
 app.use((req, res, next) => {
@@ -88,6 +96,6 @@ app.use((req, res, next) => {
 conn
   .sync()
   .then(() => {
-    app.listen(3000);
+    app.listen(PORT);
   })
   .catch((err) => console.log(err));
