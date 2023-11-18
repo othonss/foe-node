@@ -110,6 +110,16 @@
       function validateTask(){
         return decideTask()
       }
+
+      function decideUser(){
+        let result = confirm("Ao excluir um colaborador, todas as tarefas relacionadas a ele serão excluídas também, não pode ser defeito. Deseja continuar?")
+        
+        return result
+      }
+
+      function validateUser(){
+        return decideUser()
+      }
     </script>
   </body>
 </html>
